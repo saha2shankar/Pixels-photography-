@@ -1,0 +1,88 @@
+@charset "ISO-8859-1";
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f8f9fa;
+}
+
+#wrapper {
+    overflow-x: hidden;
+}
+
+#sidebar-wrapper {
+    min-height: 100vh;
+    padding-top: 55px;
+}
+
+#sidebar-wrapper .sidebar-heading {
+    padding: 0.875rem 1.25rem;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+#page-content-wrapper {
+    min-width: 0;
+    width: 100%;
+}
+
+/* Navbar styles */
+.navbar {
+    z-index: 1000;
+}
+
+#menu-toggle {
+    margin-right: 15px;
+}
+
+/* Cards and Dashboard content */
+.card {
+    transition: all 0.3s ease;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+}
+
+.card-header {
+    background-color: #f7f7f7;
+    border-bottom: 1px solid #ddd;
+}
+
+.card-footer {
+    background-color: rgba(0, 0, 0, 0.03);
+}
+
+.card-body {
+    padding: 1.25rem;
+}
+
+/* Sidebar navigation links */
+.list-group-item-action:focus, .list-group-item-action:hover {
+    background-color: #f1f1f1;
+}
+
+
+
+.list-group-item-action {
+    transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition */
+}
+
+.list-group-item-action:hover {
+    background-color: #f0f0f0; /* Lighter hover color */
+    color: #333; /* Darker text color */
+}
+
+        .list-group-item.active {
+            background-color: #212529 !important; /* Dark active color */
+            border-color: #212529 !important;
+        }
+/* Responsive adjustments */
+@media (min-width: 768px) {
+    #sidebar-wrapper {
+        position: fixed;
+        width: 250px;
+    }
+
+    #page-content-wrapper {
+        padding-left: 250px;
+    }
+}
+
+

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Admin Dashboard</title>
+<link
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+	rel="stylesheet">
+<link
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+	rel="stylesheet">
+<link href="assets/css/AdminDashboard.css" rel="stylesheet">
+</head>
+<body>
+	<div class="d-flex" id="wrapper">
+		<!-- Sidebar -->
+		<div class="bg-dark text-white" id="sidebar-wrapper">
+			<!-- Updated sidebar styling -->
+			<div class="sidebar-heading">Admin Dashboard</div>
+			<div class="list-group list-group-flush">
+				<a href="/dashboard"
+					class="list-group-item list-group-item-action bg-dark text-white"><i
+					class="fas fa-tachometer-alt"></i> Dashboard</a> <a href="/userview"
+					class="list-group-item list-group-item-action bg-dark text-white active"><i
+					class="fas fa-users"></i> Users View</a> <a href="/useradd"
+					class="list-group-item list-group-item-action bg-dark text-white"><i
+					class="fas fa-user-plus"></i> Users Add</a> <a href="/message"
+					class="list-group-item list-group-item-action bg-dark text-white"><i
+					class="fas fa-envelope"></i> Messages</a> <a href="/logout"
+					class="list-group-item list-group-item-action bg-dark text-white"><i
+					class="fas fa-sign-out-alt"></i> Logout</a>
+			</div>
+		</div>
+		<!-- /#sidebar-wrapper -->
+
+		<!-- Page Content -->
+		<div id="page-content-wrapper">
+			<nav
+				class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
+				<h3>Pixels Photography</h3>
+
+				<div class="collapse navbar-collapse" id="navbarSupportedContent">
+					<ul class="navbar-nav ml-auto mt-2 mt-lg-0">
+
+						<li class="nav-item dropdown"><a
+							class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
+							role="button" data-toggle="dropdown" aria-haspopup="true"
+							aria-expanded="false"> <i class="fas fa-user"></i> [[${session.validuser.username}]]
+						</a>
+							<div class="dropdown-menu dropdown-menu-right"
+								aria-labelledby="navbarDropdown">
+								<a class="dropdown-item" href="#">Profile</a> <a
+									class="dropdown-item" href="#">Settings</a>
+								<div class="dropdown-divider"></div>
+								<a class="dropdown-item" href="/logout">Logout</a>
+							</div></li>
+					</ul>
+				</div>
+			</nav>
+
+	<div class="container-fluid">
+		<div class="card">
+			<div class="card-header bg-info text-center">
+				<h4>Users Details</h4>
+			</div>
+			<div class="card-body">
+				<table class="table table-hover">
+					<thead>
+						<tr>
+							<th>Name
+							<th>Email</th>
+							<th>Moble No</th>
+							<th>Address</th>
+							<th>Action</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr th:each="u : ${users}">
+							<td>[[${u.name}]]</td>
+							<td>[[${u.username}]]</td>
+							<td>[[${u.phone}]]</td>
+							<td>[[${u.address}]]</td>
+							<td><a th:href="@{/user/edit(id=${u.id})}"><input
+									type="submit" value="Edit" class="btn btn-success"></a> <a
+								th:href="@{/user/delete(id=${u.id})}"><input type="submit"
+									value="Delete" class="btn btn-danger"></a></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<div class="card-footer bg-warning text-center">copyright by
+				@Pixels Photography</div>
+		</div>
+	</div>
+	</div>
+	</div>
+
+	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+	<script
+		src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+	<script
+		src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js"></script>
+	<script src="assets/js/dashboard.js"></script>
+</body>
+</html>
